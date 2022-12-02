@@ -1,7 +1,11 @@
 .yellow {
-    background: lightyellow;
+    background: yellow;
 }
 
 .green {
     background: lightgreen;
+}
+
+p {
+    margin: 0;
 }
