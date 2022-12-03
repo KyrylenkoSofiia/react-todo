@@ -26,6 +26,7 @@
 p {
     margin: 0;
     width: calc(100% - 80px);
+    cursor: pointer;
 }
 
 .remove {

@@ -26,37 +26,33 @@ class App extends React.Component {
     super(props);
     this.state = {
       todos: todos,
-      // value: ''
     };
 
     this.updateState = this.updateState.bind(this);
-    // this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
     this.removeTodo = this.removeTodo.bind(this);
-    this.formUpdatingState = this.formUpdatingState.bind(this);
+    this.addNewTodo = this.addNewTodo.bind(this);
   }
 
   updateState = (id) => {
-    this.setState({todos: this.state.todos.map((item) => id === item.id ? {...item, isDone: !item.isDone} : item)})
+    this.setState({
+      todos: this.state.todos.map((item) =>
+        id === item.id ? { ...item, isDone: !item.isDone } : item
+      ),
+    });
+  };
+
+  addNewTodo(title) {
+    this.setState({
+      todos: [
+        ...this.state.todos,
+        { id: Date.now(), title: title, isDone: false },
+      ],
+    });
   }
-
-  formUpdatingState = (newTodo) => {
-    this.setState({todos: newTodo})
-  }
-
-  // handleChange(e) {
-  //   this.setState({value: e.target.value});
-  // }
-
-  // handleSubmit(e) {
-  //   e.preventDefault();
-  //   this.setState({todos: [...this.state.todos, {id: Date.now(), title: this.state.value, isDone: false}]})
-  //   this.setState({value: ''})
-  // }
 
   removeTodo = (id) => {
-    this.setState({todos: this.state.todos.filter(item => id !== item.id) })
-  }
+    this.setState({ todos: this.state.todos.filter((item) => id !== item.id) });
+  };
 
   render() {
     return (
@@ -74,11 +70,10 @@ class App extends React.Component {
             />
           ))}
         </div>
-        <Form todos={this.state.todos} formUpdatingState={this.formUpdatingState}/>
-        {/* <form onSubmit={this.handleSubmit}>
-          <input type="text" value={this.state.value} placeholder="enter" onChange={this.handleChange} />
-          <button type="submit">Add</button>
-        </form> */}
+        <Form
+          todos={this.state.todos}
+          addNewTodo={this.addNewTodo}
+        />
       </div>
     );
   }
