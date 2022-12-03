@@ -10,7 +10,7 @@ class Row extends React.Component {
             <>
                 <div className={["row", (isDone ? 'green' : 'yellow')].join(' ')}>
                     <p onClick={() => {updateState(id)}}>{title}</p>
-                    <button onClick={() => {removeTodo(id)}}>Remove</button>
+                    <button className="remove" onClick={() => {removeTodo(id)}}>Remove</button>
                 </div>
             </>
         )

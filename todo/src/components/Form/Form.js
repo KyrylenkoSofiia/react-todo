@@ -29,14 +29,15 @@ class Form extends React.Component {
     const {formUpdatingState} = this.props;
     return (
       <>
-        <form onSubmit={this.handleSubmit} onClick={() => {formUpdatingState(this.state.todos)}}>
+        <form className="form" onSubmit={this.handleSubmit} onClick={() => {formUpdatingState(this.state.todos)}}>
           <input
+          className="field"
             type="text"
             value={this.state.value}
             placeholder="enter"
             onChange={this.handleChange}
           />
-          <button type="submit">Add</button>
+          <button className="add" type="submit">Add</button>
         </form>
       </>
     );

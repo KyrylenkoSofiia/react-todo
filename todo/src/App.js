@@ -60,7 +60,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
+      <div className="container">
         <h1>My todo list:</h1>
         <div className="table">
           {this.state.todos.map((item) => (
@@ -79,7 +79,7 @@ class App extends React.Component {
           <input type="text" value={this.state.value} placeholder="enter" onChange={this.handleChange} />
           <button type="submit">Add</button>
         </form> */}
-      </>
+      </div>
     );
   }
 }
