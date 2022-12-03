@@ -15,7 +15,7 @@ class Form extends React.Component {
   }
 
   render() {
-    const {formUpdatingState} = this.props;
+    const {addNewTodo} = this.props;
     return (
       <>
         <div className="form">
@@ -26,7 +26,7 @@ class Form extends React.Component {
             placeholder="enter"
             onChange={this.handleChange}
           />
-          <button className="add" onClick={() => {formUpdatingState(this.state.value)}}>Add</button>
+          <button className="add" onClick={() => {addNewTodo(this.state.value)}}>Add</button>
         </div>
       </>
     );
