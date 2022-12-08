@@ -41,7 +41,7 @@ class App extends React.Component {
     });
   };
 
-  addNewTodo(title) {
+  addNewTodo =(title) => {
     this.setState({
       todos: [
         ...this.state.todos,
